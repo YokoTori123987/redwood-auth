@@ -20,4 +20,5 @@ model User {
   salt                String
   resetToken          String?
   resetTokenExpiresAt DateTime?
+  roles               String    @default("user")
 }
