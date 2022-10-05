@@ -15,10 +15,11 @@ import { MetaTags } from '@redwoodjs/web'
 import { toast, Toaster } from '@redwoodjs/web/toast'
 
 const LoginPage = () => {
-  const { isAuthenticated, logIn } = useAuth()
+  const { isAuthenticated, logIn, currentUser } = useAuth()
 
   useEffect(() => {
     if (isAuthenticated) {
+      console.log(currentUser)
       navigate(routes.home())
     }
   }, [isAuthenticated])
@@ -30,7 +31,7 @@ const LoginPage = () => {
 
   const onSubmit = async (data) => {
     const response = await logIn({ ...data })
-
+    console.log(response, 'response')
     if (response.message) {
       toast(response.message)
     } else if (response.error) {

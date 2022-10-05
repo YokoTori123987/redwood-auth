@@ -31,7 +31,7 @@ const SignupPage = () => {
 
   const onSubmit = async (data) => {
     const response = await signUp({ ...data })
-
+    // console.log(response.data)
     if (response.message) {
       toast(response.message)
     } else if (response.error) {
@@ -62,7 +62,7 @@ const SignupPage = () => {
                     className="rw-label"
                     errorClassName="rw-label rw-label-error"
                   >
-                    Username
+                    E-mail
                   </Label>
                   <TextField
                     name="username"
@@ -72,7 +72,7 @@ const SignupPage = () => {
                     validation={{
                       required: {
                         value: true,
-                        message: 'Username is required',
+                        message: 'E-mail is required',
                       },
                     }}
                   />
@@ -102,27 +102,68 @@ const SignupPage = () => {
                   <FieldError name="password" className="rw-field-error" />
 
                   <Label
-                    name="name"
+                    name="first_name"
                     className="rw-label"
                     errorClassName="rw-label rw-label-error"
                   >
-                    Name
+                    FirstName
                   </Label>
                   <TextField
-                    name="name"
+                    name="first_name"
                     className="rw-input"
                     errorClassName="rw-input rw-input-error"
-                    ref={usernameRef}
+                    // ref={usernameRef}
                     validation={{
                       required: {
                         value: true,
-                        message: 'name is required',
+                        message: 'FirstnName is required',
                       },
                     }}
                   />
 
-                  <FieldError name="name" className="rw-field-error" />
+                  <FieldError name="first_name" className="rw-field-error" />
+                  <Label
+                    name="last_name"
+                    className="rw-label"
+                    errorClassName="rw-label rw-label-error"
+                  >
+                    LastName
+                  </Label>
+                  <TextField
+                    name="last_name"
+                    className="rw-input"
+                    errorClassName="rw-input rw-input-error"
+                    // ref={usernameRef}
+                    validation={{
+                      required: {
+                        value: true,
+                        message: 'LastName is required',
+                      },
+                    }}
+                  />
 
+                  <FieldError name="last_name" className="rw-field-error" />
+                  <Label
+                    name="gender"
+                    className="rw-label"
+                    errorClassName="rw-label rw-label-error"
+                  >
+                    Gender
+                  </Label>
+                  <TextField
+                    name="gender"
+                    className="rw-input"
+                    errorClassName="rw-input rw-input-error"
+                    // ref={usernameRef}
+                    validation={{
+                      required: {
+                        value: true,
+                        message: 'Gender is required',
+                      },
+                    }}
+                  />
+
+                  <FieldError name="gender" className="rw-field-error" />
                   <div className="rw-button-group">
                     <Submit className="rw-button rw-button-blue">
                       Sign Up
